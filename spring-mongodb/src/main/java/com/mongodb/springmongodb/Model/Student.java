@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Student")
 public class Student {
-    @Id //unique value
+    @Id // @GeneratedValue(strategy=GenerationType.IDENTITY) //unique value
     private int id;
     private String stName;
     private String stStream;
