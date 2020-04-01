@@ -4,13 +4,25 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Document(collection = "Student")
+@Document(collection = "Student")   //DB collection name
 public class Student {
     @Id
     private String id;
     private String stName;
     private String stStream;
 
+//    //Constructor
+//    public Student(String id, String stName, String stStream) {
+//        this.id = id;
+//        this.stName = stName;
+//        this.stStream = stStream;
+//    }
+
+    public Student() {
+
+    }
+
+    //Getters and Setters
     public String getId() {
         return id;
     }
@@ -33,5 +45,15 @@ public class Student {
 
     public void setStStream(String stStream) {
         this.stStream = stStream;
+    }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + id + '\'' +
+                ", stName='" + stName + '\'' +
+                ", stStream='" + stStream + '\'' +
+                '}';
     }
 }
