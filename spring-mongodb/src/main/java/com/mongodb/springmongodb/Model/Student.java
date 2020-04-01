@@ -6,16 +6,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Student")
 public class Student {
-    @Id // @GeneratedValue(strategy=GenerationType.IDENTITY) //unique value
-    private int id;
+    @Id
+    private String id;
     private String stName;
     private String stStream;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
