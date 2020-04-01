@@ -31,11 +31,11 @@ public class StudentController {
     //POST method to add student
     @PostMapping("/addStudent")
     public Serializable saveStudent(@RequestBody Student student) {
-        /*String j = student.getId();
-        if (repository.findById(j).isPresent() || j==null) {
+        /*String j = student.getId();                               //for checking if ID has been already assigned 
+        if (repository.findById(j).isPresent() || j==null) {        //in case of manual entry of ID 
             return "ID already exists";
         } else {*/
-            int p = Math.toIntExact(repository.count());
+            int p = Math.toIntExact(repository.count());            //Auto-Insertion of ID for new Student 
             Student st1 = new Student();
             String val="A"+ String.valueOf(p+1);
             st1.setId(val);
@@ -58,6 +58,7 @@ public class StudentController {
         return repository.findById(id);
     }
 
+    //PUT method to update Student data by ID
     @PutMapping("/updateStudent/{id}")
     public Student updateStudent(@RequestBody Student student, @PathVariable String id) {
         Student stu =new Student();
