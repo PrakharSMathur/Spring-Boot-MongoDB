@@ -52,18 +52,28 @@ public class StudentService {
             return "ID already exists";                         // with a Entry in DB with  {"id":0,"stName":0"}
         } else {*/                                              // then it auto-increments by 1.
 
-        Student count = repository.findById("0").get();         //Auto-Insertion of ID for new Student
-        int value = Integer.parseInt(count.getStName());
-        Student st1 = new Student();
-        String val = "A" + String.valueOf(value + 1);
-        st1.setId(val);
-        st1.setStName(student.getStName());
-        st1.setStStream(student.getStStream());
-        repository.insert(st1);
-        count.setStName(String.valueOf(value + 1));
-        repository.save(count);
-        return "Added Student-\n" + "ID :" + String.valueOf(st1.getId()) + "\nName :" + String.valueOf(st1.getStName());
-        // }
+        int init = Math.toIntExact(repository.count());          //Initialises the DB with a count Document
+        if (init == 0) {
+            Student count = new Student();
+            count.setId("0");
+            count.setStName("0");
+            repository.insert(count);
+            return "Init successful! \n" + "Kindly retry entering data";
+        } else {
+            Student count = repository.findById("0").get();         //Auto-Insertion of ID for new Student
+            int value = Integer.parseInt(count.getStName());
+            Student st1 = new Student();
+            value += 1;
+            String NumStr = String.format("%04d", value);
+            String val = "A" + NumStr;
+            st1.setId(val);
+            st1.setStName(student.getStName());
+            st1.setStStream(student.getStStream());
+            repository.insert(st1);
+            count.setStName(String.valueOf(value));
+            repository.save(count);
+            return "Added Student-\n" + "ID :" + String.valueOf(st1.getId()) + "\nName :" + String.valueOf(st1.getStName());
+        }
     }
 
     public List<Student> getAll() {
