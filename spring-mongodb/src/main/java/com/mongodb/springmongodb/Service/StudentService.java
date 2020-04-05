@@ -14,21 +14,32 @@ import java.util.Optional;
 @Service
 public class StudentService {
 
-    @Autowired
+    
 
     StudentRepository repository;
+    
+    @Autowired
+    public void setRepository(StudentRepository repository) {
+		this.repository = repository;
+	}
 
-    public String updateStudentService(Student student, String id) {
+	@Autowired
+    public StudentRepository getRepository() { 
+		return repository;
+	}
+
+	public String updateStudentService(Student student, String id) {
+    	System.out.println("yesh its called");
         if (!repository.findById(id).isPresent()) {
             return "ID does not exist";
-        } else {
+        } else {        	
             Student stu = new Student();
             stu.setId(id);
             stu.setStName(student.getStName());
             stu.setStStream(student.getStStream());
             repository.deleteById(student.getId());
             repository.insert(stu);
-            return "Updated :" + stu;
+            return stu.getId().toString();
         }
     }
 
@@ -62,6 +73,7 @@ public class StudentService {
         } else {
             Student count = repository.findById("0").get();         //Auto-Insertion of ID for new Student
             int value = Integer.parseInt(count.getStName());
+            System.out.println(count.getStName());
             Student st1 = new Student();
             value += 1;
             String NumStr = String.format("%04d", value);
