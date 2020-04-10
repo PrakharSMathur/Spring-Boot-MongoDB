@@ -1,0 +1,21 @@
+
+U
+java:S4684@"@Replace this persistent entity with a simple POJO or DTO object.(Ë«•5
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¤ÈòÇüÿÿÿÿ
+G
+java:S1153'"1Directly append the argument of String.valueOf().(¾¡á§
+[
+java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(Æó‚ıÿÿÿÿ
+L
+java:S1153."1Directly append the argument of String.valueOf().(–úÊ¿ùÿÿÿÿ
+Q	java:S125 "<This block of commented-out lines of code should be removed.(ö™ï•
+V	java:S125/"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+Y
+java:S3752">Add a "method" parameter to this "@RequestMapping" annotation.(Í¹‹£øÿÿÿÿ
+0
+java:S3751"Make this method "public".(¸¬˜Ï
+V	java:S125"<This block of commented-out lines of code should be removed.(ıÂÔşÿÿÿÿ
+M
+java:S3655$"7Call "Optional#isPresent()" before accessing the value.(†¢¹³
+L
+java:S1153."1Directly append the argument of String.valueOf().(–úÊ¿ùÿÿÿÿ
