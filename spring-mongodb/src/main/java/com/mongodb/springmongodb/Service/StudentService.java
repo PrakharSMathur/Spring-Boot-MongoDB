@@ -89,6 +89,8 @@ public class StudentService {
     }
 
     public List<Student> getAll() {
-        return repository.findAll();
+        List listAll= repository.findAll();
+        listAll.remove(0);
+        return listAll;
     }
 }
